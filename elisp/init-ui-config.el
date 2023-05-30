@@ -51,6 +51,8 @@
         '(("lambda" . 955)
           ("delta" . 120517)
           ("epsilon" . 120518)
+          ("&&" . 8743)
+          ("||" . 8744)
           ("->" . 8594)
           ("<=" . 8804)
           (">=" . 8805))))
@@ -90,6 +92,10 @@
            (not (string-match-p "N/A" (battery-format "%B" (funcall battery-status-function)))))
   (display-battery-mode 1))
 ;; -DisTimeBat
+
+;; Smooth scrolling over images
+(use-package iscroll
+  :hook (image-mode . iscroll-mode))
 
 (provide 'init-ui-config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

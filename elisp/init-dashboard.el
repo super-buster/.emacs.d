@@ -40,7 +40,7 @@
   :demand
   :diminish (dashboard-mode page-break-lines-mode)
   :bind
-  (("C-z d" . open-dashboard)
+  (("<f2>" . open-dashboard)
    :map dashboard-mode-map
    (("n" . dashboard-next-line)
     ("p" . dashboard-previous-line)
@@ -62,7 +62,7 @@
            (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))
           (,(all-the-icons-fileicon "elisp" :height 1.0 :v-adjust -0.1)
            "Configuration" "" (lambda (&rest _) (edit-configs)))
-          (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust -0.1)
+          (,(all-the-icons-faicon "cogs" :height 1.0 :v-adjust -0.1)        
            "Update" "" (lambda (&rest _) (auto-package-update-now)))))
      `((("" "M-EMACS" "Browse M-EMACS Homepage"
          (lambda (&rest _) (browse-url "https://github.com/MatthewZMD/.emacs.d")))

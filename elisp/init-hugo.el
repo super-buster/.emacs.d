@@ -1,20 +1,31 @@
-;;; init-hackernews.el --- -*- lexical-binding: t -*-
+;;; init-hugo.el ---
 ;;
-;; Filename: init-hackernews.el
-;; Description: Initialize Hackernews
-;; Author: Mingde (Matthew) Zeng
+;; Filename: init-hugo.el
+;; Description:
+;; Author: Y Zhongxiang
+;; Maintainer:
 ;; Copyright (C) 2019 Mingde (Matthew) Zeng
-;; Created: Thu Mar 14 17:32:54 2019 (-0400)
-;; Version: 3.0
-;; URL: https://github.com/MatthewZMD/.emacs.d
-;; Keywords: M-EMACS .emacs.d fonts
-;; Compatibility: emacs-version >= 26.1
+;; Created: 周六 5月 27 16:11:45 2023 (+0800)
+;; Version:
+;; Package-Requires: ()
+;; Last-Updated:
+;;           By:
+;;     Update #: 8
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;; This initializes hackernews.el
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -35,17 +46,20 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-global-config))
+(use-package ox-hugo
+  :ensure t   ;Auto-install the package from Melpa
+  :pin melpa  ;`package-archives' should already have ("melpa" . "https://melpa.org/packages/")
+  :after ox)
 
-;; HackerNewsPac
-(use-package hackernews
-  :commands (hackernews)
-  :bind
-  (("M-z h" . hackernews)
-   ("M-m h" . hackernews)))
-;; -HackerNewsPac
+;; Useful hugo blog management tool
+(use-package easy-hugo
+  :init
+  (setq easy-hugo-basedir "y:/kongmuqiurenblog/")
+  (setq easy-hugo-default-ext ".org")
+  (setq easy-hugo-previewtime "300")
+  (setq easy-hugo-postdir "content/posts")
+  )
 
-(provide 'init-hackernews)
+(provide 'init-hugo)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-hackernews.el ends here
+;;; init-hugo.el ends here

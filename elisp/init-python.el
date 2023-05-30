@@ -35,19 +35,27 @@
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-syntax)
-  (require 'init-const))
-
 ;; PythonConfig
 (use-package python-mode
   :ensure nil
+  :init
+  ;; Disable readline based native completion
+  (setq python-shell-completion-native-enable nil)
   :after flycheck
   :mode "\\.py\\'"
   :custom
   (python-indent-offset 4)
   (flycheck-python-pycompile-executable "python3")
-  (python-shell-interpreter "python3"))
+  (python-shell-interpreter "python3")
+  :config
+  (when (and (executable-find "python3")
+             (string= python-shell-interpreter "python"))
+    (setq python-shell-interpreter "python3"))
+
+  ;; Env vars
+  (with-eval-after-load 'exec-path-from-shell
+    (exec-path-from-shell-copy-env "PYTHONPATH"))
+  )
 ;; -PythonConfig
 
 ;; LSPPythonPac
@@ -56,6 +64,23 @@
   :custom
   (lsp-pyright-multi-root nil))
 ;; -LSPPythonPac
+
+(use-package anaconda-mode
+  :ensure t
+  :defer t
+  :diminish anaconda-mode
+  :hook ((python-mode . anaconda-mode)
+         (python-mode . anaconda-eldoc-mode))
+  :bind (:map python-mode-map (("C-x C-d" . anaconda-mode-show-doc)
+                               ("C-x C-w" . anaconda-mode-find-definitions))))
+
+(defun enzuru-configure-company-anaconda ()
+  (if (not (member 'company-anaconda company-backends))
+      (push 'company-anaconda company-backends)))
+
+(use-package company-anaconda
+  :ensure t
+  :hook ((python-mode . enzuru-configure-company-anaconda)))
 
 (provide 'init-python)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

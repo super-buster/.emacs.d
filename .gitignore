@@ -29,3 +29,5 @@
 /init-private.el
 /emojis/
 /org-roam.db
+/.org-id-locations
+/anaconda-mode/

@@ -112,6 +112,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 ;; Global Functionalities
 (require 'init-global-config)
 
+(require 'init-proxy)
+
 (require 'init-func)
 
 (require 'init-search)
@@ -145,6 +147,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-dashboard)
 
+(require 'init-treemacs)
+
 (require 'init-fonts)
 
 (require 'init-scroll)
@@ -163,8 +167,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-parens)
 
 (require 'init-indent)
-
-(require 'init-quickrun)
 
 (require 'init-format)
 
@@ -195,30 +197,20 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-buildsystem)
 
-;; Web Development
-(require 'init-webdev)
-
 ;; Office
 (require 'init-org)
 
 (require 'init-pdf)
 
+;; blog
+(require 'init-hugo)
+
 ;; Internet
-(require 'init-eaf)
-
-(require 'init-erc)
-
 (require 'init-mu4e)
 
 (require 'init-tramp)
 
 (require 'init-leetcode)
-
-(require 'init-debbugs)
-
-(require 'init-hackernews)
-
-(require 'init-eww)
 
 ;; Miscellaneous
 (require 'init-chinese)

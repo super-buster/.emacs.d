@@ -63,6 +63,10 @@
   :custom-face
   (org-agenda-current-time ((t (:foreground "spring green"))))
   :config
+  (setq org-startup-indented t)
+    ;; Add graphical view of agenda
+  (use-package org-timeline
+    :hook (org-agenda-finalize . org-timeline-insert-timeline))
   (add-to-list 'org-latex-packages-alist '("" "listings"))
   (unless (version< org-version "9.2")
     (require 'org-tempo))
@@ -107,7 +111,8 @@
 
 ;; TocOrgPac
 (use-package toc-org
-  :hook (org-mode . toc-org-mode))
+  :hook (org-mode . toc-org-mode)
+        (markdown-mode . toc-org-mode))
 ;; -TocOrgPac
 
 ;; HTMLIZEPac

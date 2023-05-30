@@ -61,7 +61,14 @@
 
 (when (display-graphic-p)
   (change-font))
+
 ;; -FontFun
+
+;; Emoji
+(use-package emojify
+  :if (display-graphic-p)
+    :hook (after-init . global-emojify-mode))
+;; -Emoji
 
 ;; ATIPac
 (use-package all-the-icons :if (display-graphic-p))

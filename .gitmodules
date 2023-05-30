@@ -19,9 +19,6 @@
 [submodule "site-elisp/instant-rename-tag"]
     path = site-elisp/instant-rename-tag
     url = https://github.com/manateelazycat/instant-rename-tag.git
-[submodule "site-elisp/emacs-application-framework"]
-    path = site-elisp/emacs-application-framework
-    url = https://github.com/emacs-eaf/emacs-application-framework.git
 [submodule "site-elisp/multi-term"]
     path = site-elisp/multi-term
     url = https://github.com/manateelazycat/multi-term.git

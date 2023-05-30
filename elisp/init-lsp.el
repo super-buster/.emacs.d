@@ -98,7 +98,9 @@
 
 ;; DAPPac
 (use-package dap-mode
+  :disabled
   :diminish
+  :defines dap-python-executable
   :bind
   (:map dap-mode-map
         (("<f12>" . dap-debug)
