@@ -193,7 +193,12 @@ FACE defaults to inheriting from default and highlight."
   (message (kill-new (if (buffer-file-name) (buffer-file-name) (buffer-name)))))
 ;; -WhereAmI
 
-
+;; Reload configurations
+(defun reload-init-file ()
+  "Reload Emacs configurations."
+  (interactive)
+  (load user-init-file))
 (provide 'init-func)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-func.el ends here

@@ -62,14 +62,6 @@
 ;; -DefBindings
 
 ;; UTF8Coding
-(progn ; `charset'
-  (when (fboundp 'set-charset-priority)
-    (set-charset-priority 'unicode))
-  (prefer-coding-system 'utf-8)
-  (setq locale-coding-system 'utf-8)
-  (setq system-time-locale "C")
-  (unless (eq system-type 'windows-nt)
-    (set-selection-coding-system 'utf-8)))
 (unless *sys/win32*
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
